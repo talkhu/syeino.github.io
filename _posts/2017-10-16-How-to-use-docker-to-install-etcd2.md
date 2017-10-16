@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to use docker to install etcd"
+title:  "How to use docker to install etcd2"
 categories: Micro_Services
 tags:  docker etcd
 author: Bo Chen
@@ -27,3 +27,5 @@ author: Bo Chen
 
      curl -X PUT http://${HostIP}:2379/v2/keys/message -d value="Hello"
      curl http://${HostIP}:2379/v2/keys/message
+
+For more details, please refer <https://coreos.com/etcd/docs/latest/v2/docker_guide.html>
