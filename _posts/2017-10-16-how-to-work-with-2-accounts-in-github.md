@@ -2,7 +2,7 @@
 layout: post
 title:  "How to work with more than 1 accounts in Git Hub"
 categories: Misc
-tags:  Misc
+tags:  git
 author: Bo Chen
 ---
 
