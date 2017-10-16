@@ -3,7 +3,7 @@ layout: post
 title:  "Hello World"
 categories: Misc
 tags:  Misc
-author: Bo
+author: Bo Chen
 ---
 
 * content
