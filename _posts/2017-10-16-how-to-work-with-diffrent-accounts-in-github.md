@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to work with different accounts in Git Hub"
+title:  "How to work with different accounts in Github"
 categories: Miscellaneous
 tags:  git
 author: Bo Chen
