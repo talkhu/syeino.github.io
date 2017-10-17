@@ -43,11 +43,11 @@ Template resources are defined in TOML config files under the confdir.
 
 Source templates are Golang text templates.
 
-	/etc/confd/templates/myconfig.conf.tmpl
+	```/etc/confd/templates/myconfig.conf.tmpl
 
 	[myconfig]
-	database_url = {{getv "/myapp/database/url"}}
-	database_user = {{getv "/myapp/database/user"}}
+	database_url ={{"{{"}}getv "/myapp/database/url"}}
+	database_user = {{"{{"}}getv "/myapp/database/user"}}
 
 ### Setup the etcd with proper value
 
