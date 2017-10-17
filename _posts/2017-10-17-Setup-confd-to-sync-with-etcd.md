@@ -43,7 +43,7 @@ Template resources are defined in TOML config files under the confdir.
 
 Source templates are Golang text templates.
 
-	```/etc/confd/templates/myconfig.conf.tmpl
+	/etc/confd/templates/myconfig.conf.tmpl
 
 	[myconfig]
 	database_url = {\{getv "/myapp/database/url"}\}
