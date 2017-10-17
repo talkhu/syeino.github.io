@@ -3,8 +3,6 @@ layout: post
 title:  "Setup confd to sync with etcd"
 categories: Micro_Services
 tags:  confd etcd
-excerpt: null
-mathjax: true
 author: Bo Chen
 ---
 
@@ -65,10 +63,9 @@ confd supports two modes of operation daemon and onetime. In daemon mode confd p
 Output:
 
 	2014-07-08T20:38:36-07:00 confd[16252]: INFO Target config /tmp/myconfig.conf out of sync
-	2014-07-08T20:38:36-07:00 confd[16252]: INFO Target config /tmp/myconfig.conf has been updated
-The dest configuration file should now be in sync.
+	2014-07-08T20:38:36-07:00 confd[16252]: INFO Target config /tmp/myconfig.conf has been updated The dest configuration file should now be in sync.
 
-	cat /tmp/myconfig.conf  
+cat /tmp/myconfig.conf  
 	
 Output:
 
