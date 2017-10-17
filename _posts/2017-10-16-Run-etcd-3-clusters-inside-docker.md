@@ -118,4 +118,9 @@ The etcd release container does not include default root certificates. To use HT
      curl -X PUT http://${HostIP}:2379/v2/keys/message -d value="Hello"
      curl http://${HostIP}:2379/v2/keys/message
 
+NOTE:
+In case hit "cannot assign requested address" issue, please change the "listen-peer-urls" and "listen-client-urls" to 0.0.0.0:2379 or 0.0.0.0:2380
+
+    docker run -p 2379:2379 -p 2380:2380 --volume=/micros/micros/volume/etcd/node1:/etcd-data --name etcd quay.io/coreos/etcd:latest /usr/local/bin/etcd --data-dir=/etcd-data --name node1 --initial-advertise-peer-urls http://9.37.1.71:2380 --listen-peer-urls http://0.0.0.0:2380 --advertise-client-urls http://9.37.1.71:2379 --listen-client-urls http://0.0.0.0:2379 --initial-cluster node1=http://9.37.1.71:2380
+
 <https://coreos.com/etcd/docs/latest/op-guide/container.html#docker>
