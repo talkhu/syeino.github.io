@@ -46,8 +46,9 @@ Source templates are Golang text templates.
 	```/etc/confd/templates/myconfig.conf.tmpl
 
 	[myconfig]
-	database_url ={{"{{"}}getv "/myapp/database/url"}}
-	database_user = {{"{{"}}getv "/myapp/database/user"}}
+	database_url = { {getv "/myapp/database/url"}}
+	database_user = { {getv "/myapp/database/user"}}
+	NOTE: remove the "blank" between the { {
 
 ### Setup the etcd with proper value
 
