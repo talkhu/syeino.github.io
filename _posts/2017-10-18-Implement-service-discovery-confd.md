@@ -2,7 +2,7 @@
 layout: post
 title:  "Implement service discovery - confd"
 categories: Micro_Services
-tags:  confd etcd
+tags:  confd etcd nginx
 author: Bo Chen
 ---
 
