@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Implement service discovery(confd)"
+title:  "Implement service discovery(nginx + confd)"
 categories: Micro_Services
 tags:  confd etcd nginx
 author: Bo Chen
