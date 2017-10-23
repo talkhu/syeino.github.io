@@ -9,8 +9,8 @@ author: Bo Chen
 
 ## Prerequisite
 
-    1. Should have an etcd server($etcd_host) or cluster available.		
-    2. Should have a host($service_host) for backend service and registrator should running on it.	
+    1. Should have an etcd server($etcd_host) or cluster available.
+    2. Should have a host($service_host) for backend service and registrator should running on it.
     3. Should have a host($proxy_host) for nginx as reverse proxy.
 
 ## Host information for micro service team
@@ -21,11 +21,11 @@ author: Bo Chen
 
     (NOTE: The above 3 host can be the same, like localhost)
 
-## Steps to demostrate service discovery and registrator.
+## Steps to demostrate service discovery and registrator
 
-    1. Build the images for nginx and the env-info project  
+    1. Build the images for nginx and the env-info project
         cd project/nginx-discovery
-        sudo docker build . -t nginx-discovery  
+        sudo docker build . -t nginx-discovery
         cd reading-env-info
         sudo docker build . -t reading-env-info (NOTE: Only if jenkins setup not work)
 
