@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Configure Center and Service Registrator and Discovery"
+title:  "Configure Center and Service Registrator and Discovery - Part 2"
 categories: Micro_Services
 tags:  etcd discovery registrator 注册发现
 author: Bo Chen
 ---
-# Configure Center and Service Registration and Discovery
+# Configure Center and Service Registration and Discovery - Part 2
 
 ## Prerequisite
 
