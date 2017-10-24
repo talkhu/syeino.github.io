@@ -58,7 +58,7 @@ author: Bo Chen
 
 ### Create a template resource config
 
-/etc/confd/conf.d/myconfig.toml    #Template resources are defined in TOML config files under the confdir.
+* /etc/confd/conf.d/myconfig.toml    #Template resources are defined in TOML config files under the confdir.
 
 ```bash
     [template]
@@ -76,8 +76,8 @@ author: Bo Chen
 
 ```go
     [myconfig]
-    database_url = {{getv "/myapp/database/url"}}
-    database_user = {{getv "/myapp/database/user"}}
+    database_url = {\{getv "/myapp/database/url"}\}
+    database_user = {\{getv "/myapp/database/user"\}}
 ```
 
 ### Setup the etcd with proper value
