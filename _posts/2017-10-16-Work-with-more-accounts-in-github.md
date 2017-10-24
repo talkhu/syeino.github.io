@@ -5,6 +5,8 @@ categories: Miscellaneous
 tags:  git
 author: Bo Chen
 ---
+
+* content
 {:toc}
 
 # Cancel the global setting
