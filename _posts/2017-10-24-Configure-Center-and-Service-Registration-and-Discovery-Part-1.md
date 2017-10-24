@@ -5,6 +5,10 @@ categories: Micro_Services
 tags:  etcd discovery registrator 注册发现
 author: Bo Chen
 ---
+* content
+
+{:toc}
+
 # Configure Center and Service Registration and Discovery - Part 1
 
 ## Setup etcd from docker image(quay.io/coreos/etcd:latest)
