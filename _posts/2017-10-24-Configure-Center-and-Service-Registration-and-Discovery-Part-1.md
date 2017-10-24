@@ -9,9 +9,7 @@ author: Bo Chen
 
 {:toc}
 
-# Configure Center and Service Registration and Discovery - Part 1
-
-## Setup etcd from docker image(quay.io/coreos/etcd:latest)
+# Setup etcd from docker image(quay.io/coreos/etcd:latest)
 
 * Create a container providing etcd service
 
