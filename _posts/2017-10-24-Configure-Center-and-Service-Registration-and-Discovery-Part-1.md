@@ -7,7 +7,6 @@ author: Bo Chen
 ---
 
 * content
-
 {:toc}
 
 # Setup etcd from docker image(quay.io/coreos/etcd:latest)
