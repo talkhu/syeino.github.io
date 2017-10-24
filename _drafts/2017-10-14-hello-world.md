@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Hello World"
-categories: Misc
+categories: Miscellaneous
 tags:  Misc
 excerpt: null
 mathjax: true

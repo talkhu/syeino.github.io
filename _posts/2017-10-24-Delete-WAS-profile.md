@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Delete WAS profile"
-categories: Admin
+categories: Operation
 tags:  WAS
 excerpt: null
 mathjax: true
