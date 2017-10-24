@@ -5,15 +5,15 @@ categories: Micro_Services
 tags:  etcd discovery registrator 注册发现
 author: Bo Chen
 ---
-# Configure Center and Service Registration and Discovery - Part 2
+{:toc}
 
-## Prerequisite
+# Prerequisite
 
 * Should have an etcd server `$etcd_host` or cluster available.
 * Should have a host `$service_host` for backend service and registrator should running on it.
 * Should have a host `$proxy_host` for nginx as reverse proxy.
 
-## Host information
+# Host information
 
 * The following 3 host can be the same, like `localhost`
 
@@ -23,7 +23,7 @@ author: Bo Chen
     $proxy_host = yyy.com
 ```
 
-## Steps to demostrate service discovery and registrator
+# Steps to demostrate service discovery and registrator
 
 * Build the images for nginx and the env-info project
 

@@ -21,7 +21,7 @@ author: Bo Chen
   * Get the value by key
     `curl http://9.37.1.71:2379/v2/keys/message`
 
-## Setup registrator from docker image(gliderlabs/registrator)
+# Setup registrator from docker image(gliderlabs/registrator)
 
 * Start a registrator service base on etcd which root key is resources
 
@@ -40,9 +40,9 @@ author: Bo Chen
           consul://localhost:8500
 ```
 
-## Setup confd
+# Setup confd
 
-### Download confd and export it to path
+## Download confd and export it to path
 
 ```bash
     wget https://github.com/kelseyhightower/confd/releases/download/v0.14.0/confd-0.14.0-linux-amd64
@@ -52,11 +52,11 @@ author: Bo Chen
     export PATH="$PATH:/opt/confd/bin"
 ```
 
-### Create the directory for configuration and template
+## Create the directory for configuration and template
 
 `sudo mkdir -p /etc/confd/{conf.d,templates}    #confdir`
 
-### Create a template resource config
+## Create a template resource config
 
 * /etc/confd/conf.d/myconfig.toml    #Template resources are defined in TOML config files under the confdir.
 
@@ -70,7 +70,7 @@ author: Bo Chen
     ]
 ```
 
-### Create the source template
+## Create the source template
 
 /etc/confd/templates/myconfig.conf.tmpl    #Source templates are Golang text templates.
 
@@ -80,14 +80,14 @@ author: Bo Chen
     database_user = {\{getv "/myapp/database/user"\}}
 ```
 
-### Setup the etcd with proper value
+## Setup the etcd with proper value
 
 ```bash
     curl -X PUT http://9.37.1.71:2379/v2/keys/myapp/database/url -d value="db.example.com"
     curl -X PUT http://9.37.1.71:2379/v2/keys/myapp/database/user -d value="rob"
 ```
 
-### Process the template and verify the result
+## Process the template and verify the result
 
 * confd supports two modes of operation daemon and onetime. In daemon mode confd polls a backend for changes and updates destination configuration files if necessary.
 
@@ -105,15 +105,15 @@ The dest configuration file should now be in sync.
     database_user = rob
 ```
 
-## Setup nginx
+# Setup nginx
 
-### Get the nginx image
+## Get the nginx image
 
 `docker pull nginx:stable`
 
-### Please refer Part 2 to establish the environment
+## Please refer Part 2 to establish the environment
 
-## File list
+# File list
 
 * startup
 

@@ -5,9 +5,6 @@ categories: Micro_Services
 tags:  docker etcd
 author: Internet
 ---
-
-* content
-
 {:toc}
 
 In order to expose the etcd API to clients outside of Docker host, use the host IP address of the container. Please see docker inspect for more detail on how to get the IP address. Alternatively, specify ```--net=host``` flag to docker run command to skip placing the container inside of a separate network stack.

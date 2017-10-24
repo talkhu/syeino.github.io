@@ -5,19 +5,17 @@ categories: Micro_Services
 tags:  confd etcd nginx
 author: Bo Chen
 ---
-
-* content
 {:toc}
 
-### get the nginx image
+# get the nginx image
 
 	docker pull nginx:stable
 
-### start a nginx container as the load balancer
+# start a nginx container as the load balancer
 
     docker run -d --name nginx -p 80:80 nginx:stable
 
-### update the nginx config to add the proxy_pass config
+# update the nginx config to add the proxy_pass config
 
 	#/etc/nginx/conf.d/default.conf
 
@@ -28,7 +26,7 @@ author: Bo Chen
     }
 
 
-### Install confd  
+# Install confd  
 
 	wget https://github.com/kelseyhightower/confd/releases/download/v0.14.0/confd-0.14.0-linux-amd64
 	mkdir -p /opt/confd/bin
@@ -36,11 +34,11 @@ author: Bo Chen
 	chmod +x /opt/confd/bin/confd
 	export PATH="$PATH:/opt/confd/bin"  
 
-### Create the confdir  
+# Create the confdir  
 
 	sudo mkdir -p /etc/confd/{conf.d,templates}  
 	
-### Create a template resource config
+# Create a template resource config
 
 Template resources are defined in TOML config files under the confdir.
 
@@ -53,7 +51,7 @@ Template resources are defined in TOML config files under the confdir.
 		"/resources/hello-world/",
 	]
 
-### Create the source template
+# Create the source template
 
 Source templates are Golang text templates.
 
@@ -66,11 +64,11 @@ upstream myapp1 {
 }
 	NOTE: remove the "\" between the "{\{" or "}\}"
 
-### Setup the etcd with proper value
+# Setup the etcd with proper value
 
 	docker run -P tutum/hello-world
 
-### Process the template
+# Process the template
 
 confd supports two modes of operation daemon and onetime. In daemon mode confd polls a backend for changes and updates destination configuration files if necessary.
 
@@ -98,7 +96,7 @@ Output:
 
     }
 
-### Reload the nginx configuration
+# Reload the nginx configuration
 
     nginx -s reload
 
