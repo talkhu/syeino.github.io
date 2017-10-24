@@ -42,7 +42,7 @@ author: Bo Chen
           consul://localhost:8500
 ```
 
-# Setup confd
+# Setup confd to sync with etcd
 
 ## Download confd and export it to path
 

@@ -5,6 +5,8 @@ categories: Micro_Services
 tags:  confd etcd nginx
 author: Bo Chen
 ---
+
+*content
 {:toc}
 
 # get the nginx image
