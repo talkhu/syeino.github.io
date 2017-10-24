@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Compacting VirtualBox Disk Images - Linux Guests"
-categories: Miscellaneous
+categories: Operation
 tags:  VirtualBox Linux
 author: Internet
 ---
