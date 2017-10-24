@@ -14,21 +14,21 @@ author: Bo Chen
 * Create a container providing etcd service
 
 ```bash
-    docker run -p 2379:2379 -p 2380:2380 --volume=/micros/micros/volume/etcd/node1:/etcd-data --name     etcd quay.io/coreos/etcd:latest /usr/local/bin/etcd --data-dir=/etcd-data --name node1     --initial-advertise-peer-urls http://9.37.1.71:2380 --listen-peer-urls http://0.0.0.0:2380     --advertise-client-urls http://9.37.1.71:2379 --listen-client-urls http://0.0.0.0:2379     --initial-cluster node1=http://9.37.1.71:2380
+    docker run -p 2379:2379 -p 2380:2380 --volume=/micros/micros/volume/etcd/node1:/etcd-data --name     etcd quay.io/coreos/etcd:latest /usr/local/bin/etcd --data-dir=/etcd-data --name node1     --initial-advertise-peer-urls http://${etcd_host}:2380 --listen-peer-urls http://0.0.0.0:2380     --advertise-client-urls http://${etcd_host}:2379 --listen-client-urls http://0.0.0.0:2379     --initial-cluster node1=http://${etcd_host}:2380
 ```
 
 * Upload key-value to verify the installation
   * Put the key/value
-    `curl -X PUT http://9.37.1.71:2379/v2/keys/message -d value="Hello1"`
+    `curl -X PUT http://${etcd_host}:2379/v2/keys/message -d value="Hello1"`
   * Get the value by key
-    `curl http://9.37.1.71:2379/v2/keys/message`
+    `curl http://${etcd_host}:2379/v2/keys/message`
 
 # Setup registrator from docker image(gliderlabs/registrator)
 
 * Start a registrator service base on etcd which root key is resources
 
 ```bash
-    docker run -d --name=registrator --net=host --volume=/var/run/docker.sock:/tmp/docker.sock     gliderlabs/registrator:latest etcd://9.37.1.71:2379/resources
+    docker run -d --name=registrator --net=host --volume=/var/run/docker.sock:/tmp/docker.sock     gliderlabs/registrator:latest etcd://${etcd_host}:2379/resources
 ```
 
 * Start a registrator service base on consul
@@ -85,8 +85,8 @@ author: Bo Chen
 ## Setup the etcd with proper value
 
 ```bash
-    curl -X PUT http://9.37.1.71:2379/v2/keys/myapp/database/url -d value="db.example.com"
-    curl -X PUT http://9.37.1.71:2379/v2/keys/myapp/database/user -d value="rob"
+    curl -X PUT http://${etcd_host}:2379/v2/keys/myapp/database/url -d value="db.example.com"
+    curl -X PUT http://${etcd_host}:2379/v2/keys/myapp/database/user -d value="rob"
 ```
 
 ## Process the template and verify the result
@@ -94,7 +94,7 @@ author: Bo Chen
 * confd supports two modes of operation daemon and onetime. In daemon mode confd polls a backend for changes and updates destination configuration files if necessary.
 
 ```bash
-    $ confd -onetime -backend etcd -node http://9.37.1.71:2379/
+    $ confd -onetime -backend etcd -node http://${etcd_host}:2379/
 
     2014-07-08T20:38:36-07:00 confd[16252]: INFO Target config /tmp/myconfig.conf out of sync
     2014-07-08T20:38:36-07:00 confd[16252]: INFO Target config /tmp/myconfig.conf has been updated
@@ -121,9 +121,9 @@ The dest configuration file should now be in sync.
 
 ```bash
 #!/bin/bash
-confd -onetime -sync-only -backend etcd -node http://9.37.1.71:2379/
+confd -onetime -sync-only -backend etcd -node http://${etcd_host}:2379/
 sleep 5
-confd -interval 10 -backend etcd -node http://9.37.1.71:2379/ &
+confd -interval 10 -backend etcd -node http://${etcd_host}:2379/ &
 nginx -g "daemon off;"
 ```
 
@@ -141,9 +141,9 @@ nginx -g "daemon off;"
 
 ```config
 upstream myapp1 {
-        {{range getvs "/resources/reading-env-info/*"}}
-        server ralbz001071.cloud.dst.ibm.com{{.}};
-        {{end}}
+        {\{range getvs "/resources/reading-env-info/*"}\}
+        server ${service_host}{\{.}\};
+        {\{end}\}
 }
 ```
 
